@@ -5,10 +5,17 @@ import static main.java.co.edu.cotecnova.bancoapp.util.LeerEscribirPantalla.*;
 
 import static main.java.co.edu.cotecnova.bancoapp.util.OpcionesMenu.*;
 
+/**
+ * Clase que permite mostrar un menu de opciones al usuario
+ * @author Carlos Londoño
+ */
 public class Menu {
 
     private final AhorroService ahorroService = new AhorroService();
 
+    /**
+     * Método que permite mostrar el menu al usuario
+     */
     public void mostrarMenu(){
         int opcion;
         do{
@@ -18,6 +25,9 @@ public class Menu {
         }while (opcion != 0);
     }
 
+    /**
+     * Método que imprime en pantalla las opciones del menú
+     */
     private void opciones(){
         imprimirPantalla("1. " + CREARCUENTAAHORRO);
         imprimirPantalla("2. " + CREARCUENTACORRIENTE);
@@ -30,6 +40,10 @@ public class Menu {
         imprimirPantalla("0. " + SALIR);
     }
 
+    /**
+     * Método que recibe la opción seleccionada por el usuario y lo redirecciona al servicio
+     * @param opcion valor ingresado por el usuario
+     */
     private void procesarMenu(int opcion){
         switch (opcion){
             case 1:

@@ -1,5 +1,10 @@
 package main.java.co.edu.cotecnova.bancoapp.modelo;
 
+/**
+ * Se encarga de crear cuentas de tipo ahorro en la cual puedo realizar depositos y retiros
+ * @author Carlos Londoño
+ * {@link Cuenta}
+ */
 public class Ahorro extends Cuenta{
     private int porcentajeGanancia;
 
@@ -16,12 +21,18 @@ public class Ahorro extends Cuenta{
         this.porcentajeGanancia = porcentajeGanancia;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String depositar(double valorDeposito) {
         saldo += (valorDeposito * porcentajeGanancia / 100) + valorDeposito;
         return "Deposito exitoso, nuevo saldo " + saldo;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String retirar(double valorRetiro) {
         saldo -= valorRetiro;

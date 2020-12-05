@@ -1,5 +1,9 @@
 package main.java.co.edu.cotecnova.bancoapp.util;
 
+/**
+ * Atributos constantes estáticos con el título de cada opción del menú
+ * @author Carlos Londoño
+ */
 public class OpcionesMenu {
     public static final String CREARCUENTAAHORRO = "Crear cuenta de ahorro";
     public static final String CREARCUENTACORRIENTE = "Crear cuenta corriente";

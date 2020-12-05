@@ -3,9 +3,9 @@ package main.java.co.edu.cotecnova.bancoapp.modelo;
 public class Corriente extends Cuenta{
     private int cuatroXMil;
 
-    public Corriente(int id, String numeroCuenta, double saldo, String cliente, int cuatroXMil) {
+    public Corriente(int id, String numeroCuenta, double saldo, String cliente) {
         super(id, numeroCuenta, saldo, cliente);
-        this.cuatroXMil = cuatroXMil;
+        this.cuatroXMil = 4;
     }
 
     @Override
