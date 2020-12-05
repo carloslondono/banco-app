@@ -18,13 +18,24 @@ public class Ahorro extends Cuenta{
 
     @Override
     public String depositar(double valorDeposito) {
-        saldo += (valorDeposito * porcentajeGanancia) + valorDeposito;
+        saldo += (valorDeposito * porcentajeGanancia / 100) + valorDeposito;
         return "Deposito exitoso, nuevo saldo " + saldo;
     }
 
     @Override
     public String retirar(double valorRetiro) {
         saldo -= valorRetiro;
-        return "Retiro exitoso, nuevo salod " + saldo;
+        return "Retiro exitoso, nuevo saldo " + saldo;
+    }
+
+    @Override
+    public String toString() {
+        return "Ahorro{" +
+                "porcentajeGanancia=" + porcentajeGanancia +
+                ", id=" + id +
+                ", numeroCuenta='" + numeroCuenta + '\'' +
+                ", saldo=" + saldo +
+                ", cliente='" + cliente + '\'' +
+                '}';
     }
 }

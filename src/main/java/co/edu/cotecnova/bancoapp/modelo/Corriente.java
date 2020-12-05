@@ -9,14 +9,25 @@ public class Corriente extends Cuenta{
     }
 
     @Override
-    String depositar(double valorDeposito) {
+    public String depositar(double valorDeposito) {
         saldo += valorDeposito;
         return "Deposito exitoso, nuevo saldo "  + saldo;
     }
 
     @Override
-    String retirar(double valorRetiro) {
-        saldo -= (valorRetiro * cuatroXMil) + valorRetiro;
+    public String retirar(double valorRetiro) {
+        saldo -= (valorRetiro * cuatroXMil / 100) + valorRetiro;
         return "Retiroso exitoso, nuevo saldo " + saldo;
+    }
+
+    @Override
+    public String toString() {
+        return "Corriente{" +
+                "cuatroXMil=" + cuatroXMil +
+                ", id=" + id +
+                ", numeroCuenta='" + numeroCuenta + '\'' +
+                ", saldo=" + saldo +
+                ", cliente='" + cliente + '\'' +
+                '}';
     }
 }

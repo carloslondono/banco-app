@@ -1,65 +1,70 @@
 package main.java.co.edu.cotecnova.bancoapp.menu;
 
-import main.java.co.edu.cotecnova.bancoapp.modelo.Ahorro;
 import main.java.co.edu.cotecnova.bancoapp.servicio.AhorroService;
-
-import java.util.Scanner;
+import static main.java.co.edu.cotecnova.bancoapp.util.LeerEscribirPantalla.*;
 
 import static main.java.co.edu.cotecnova.bancoapp.util.OpcionesMenu.*;
 
 public class Menu {
-    private Scanner scanner = new Scanner(System.in);
-    private AhorroService ahorroService = new AhorroService();
+
+    private final AhorroService ahorroService = new AhorroService();
 
     public void mostrarMenu(){
-        Scanner scanner = new Scanner(System.in);
-        int opcion = 0;
+        int opcion;
         do{
             opciones();
-            System.out.println("Ingrese una opcion: ");
-            opcion = scanner.nextInt();
+            opcion = Integer.parseInt(leerTeclado("opcion"));
             procesarMenu(opcion);
         }while (opcion != 0);
     }
 
     private void opciones(){
-        System.out.println("1. " + CREARCUENTAAHORRO);
-        System.out.println("2. " + CREARCUENTACORRIENTE);
-        System.out.println("3. " + DEPOSITARCUENTAAHORRO);
-        System.out.println("4. " + DEPOSITARCUENTACORRIENTE);
-        System.out.println("5. " + RETIRARCUENTAAHORRO);
-        System.out.println("5. " + RETIRARCUENTACORRIENTE);
-        System.out.println("0. " + SALIR);
+        imprimirPantalla("1. " + CREARCUENTAAHORRO);
+        imprimirPantalla("2. " + CREARCUENTACORRIENTE);
+        imprimirPantalla("3. " + DEPOSITARCUENTAAHORRO);
+        imprimirPantalla("4. " + DEPOSITARCUENTACORRIENTE);
+        imprimirPantalla("5. " + RETIRARCUENTAAHORRO);
+        imprimirPantalla("6. " + RETIRARCUENTACORRIENTE);
+        imprimirPantalla("7. " + IMPRIMIRCUENTAAHORRO);
+        imprimirPantalla("8. " + IMPRIMIRCUENTACORRIENTE);
+        imprimirPantalla("0. " + SALIR);
     }
 
     private void procesarMenu(int opcion){
-        String saltoDeLinea = scanner.nextLine();
         switch (opcion){
             case 1:
-                System.out.println(CREARCUENTAAHORRO);
+                imprimirPantalla(CREARCUENTAAHORRO);
                 ahorroService.crearCuenta();
                 break;
             case 2:
-                System.out.println(CREARCUENTACORRIENTE);
+                imprimirPantalla(CREARCUENTACORRIENTE);
                 break;
             case 3:
-                System.out.println(DEPOSITARCUENTAAHORRO);
+                imprimirPantalla(DEPOSITARCUENTAAHORRO);
                 ahorroService.depositar();
                 break;
             case 4:
-                System.out.println(DEPOSITARCUENTACORRIENTE);
+                imprimirPantalla(DEPOSITARCUENTACORRIENTE);
                 break;
             case 5:
-                System.out.println(RETIRARCUENTAAHORRO);
+                imprimirPantalla(RETIRARCUENTAAHORRO);
+                ahorroService.retirar();
                 break;
             case 6:
-                System.out.println(RETIRARCUENTACORRIENTE);
+                imprimirPantalla(RETIRARCUENTACORRIENTE);
+                break;
+            case 7:
+                imprimirPantalla(IMPRIMIRCUENTAAHORRO);
+                ahorroService.recorrerLista();
+                break;
+            case 8:
+                imprimirPantalla(IMPRIMIRCUENTACORRIENTE);
                 break;
             case 0:
-                System.out.println(SALIR);
+                imprimirPantalla(SALIR);
                 break;
             default:
-                System.out.println("Opción Inválida");
+                imprimirPantalla("Opción Inválida");
         }
     }
 }
